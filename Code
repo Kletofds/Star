@@ -1,15 +1,31 @@
+#######################################
+# Star
+# Kelton Figurski
+# Program that draws a trippy star
+#######################################
+
 import turtle
 
 myTurtle = turtle.Turtle()
 myWin = turtle.Screen()
 
-def zigzag(length):
+# function that draws the star
+def star(length):
+    # makes the function end when the length gets to 0
     if length > 0:
+        # moves the line forward by whatever length is left
         myTurtle.forward(length)
+        # turns the line
         myTurtle.right(135)
+        # moves forward by one less than last time
         myTurtle.forward(length - 1)
+        # turns the line to the left
         myTurtle.left(90)
-        zigzag(length - 1)
+        # calls the function again with a length one less than before
+        star(length - 1)
     
-zigzag(100)
+# calls the function
+star(100)
+
+# ends when click
 myWin.exitonclick()
